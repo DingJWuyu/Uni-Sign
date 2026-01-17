@@ -41,7 +41,7 @@
 - **GPU**: NVIDIA GPU with at least 16GB VRAM (e.g., RTX 3080, RTX 4070 Ti)
 - **CPU**: 8+ cores
 - **RAM**: 32GB+ system memory
-- **Storage**: 100GB+
+- **Storage**: 100GB+ (for model checkpoints and processed videos; full datasets require more space)
 
 #### Software Requirements
 - Python 3.9
@@ -164,9 +164,12 @@ deepspeed --include localhost:0,1,2,3 --master_port 29511 fine_tuning.py \
   --lr 3e-4 \
   --output_dir $output_dir \
   --finetune $ckpt_path \
-  --dataset CSL_Daily \  # or CSL_News, How2Sign, OpenASL
+  --dataset CSL_Daily \
   --task SLT \
-  --rgb_support  # remove for pose-only
+  --rgb_support
+  
+# Alternative datasets: CSL_News, How2Sign, OpenASL
+# For pose-only mode, remove the --rgb_support flag
 ```
 
 *For Isolated Sign Language Recognition (ISLR):*
@@ -273,7 +276,7 @@ python ./demo/pose_extraction.py \
 
 2. **Use Pose-only Mode:**
    - Remove `--rgb_support` flag to train with pose data only
-   - Reduces memory usage by ~40%
+   - Reduces memory usage by ~40% compared to RGB-pose mode
 
 3. **Gradient Checkpointing:**
    - Enabled by default in the model
@@ -548,9 +551,12 @@ deepspeed --include localhost:0,1,2,3 --master_port 29511 fine_tuning.py \
   --lr 3e-4 \
   --output_dir $output_dir \
   --finetune $ckpt_path \
-  --dataset CSL_Daily \  # 或 CSL_News, How2Sign, OpenASL
+  --dataset CSL_Daily \
   --task SLT \
-  --rgb_support  # 移除此项以使用仅姿态模式
+  --rgb_support
+  
+# 其他数据集选项：CSL_News, How2Sign, OpenASL
+# 要使用仅姿态模式，请移除 --rgb_support 标志
 ```
 
 *孤立手语识别 (ISLR)：*
@@ -657,7 +663,7 @@ python ./demo/pose_extraction.py \
 
 2. **使用仅姿态模式：**
    - 移除 `--rgb_support` 标志以仅使用姿态数据训练
-   - 减少约 40% 的显存使用
+   - 相比 RGB-姿态模式减少约 40% 的显存使用
 
 3. **梯度检查点：**
    - 模型中默认启用
