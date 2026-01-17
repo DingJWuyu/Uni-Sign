@@ -134,7 +134,9 @@ deepspeed --include localhost:0,1,2,3 --master_port 29511 pre_training.py \
    --lr 3e-4 \
    --quick_break 2048 \
    --output_dir $output_dir \
-   --dataset CSL_News  # or CSL_Daily, WLASL, How2Sign, OpenASL
+   --dataset CSL_News
+   
+# Alternative datasets: CSL_Daily, WLASL, How2Sign, OpenASL
 ```
 
 **Stage 2: RGB-pose Pre-training**
@@ -162,7 +164,8 @@ deepspeed --include localhost:0,1,2,3 --master_port 29511 pre_training.py \
 *For Sign Language Translation (SLT):*
 ```bash
 output_dir=out/stage3_finetuning
-ckpt_path=out/stage2_pretraining/best_checkpoint.pth  # or stage1 for pose-only
+# Use stage2 checkpoint for RGB-pose, or stage1 checkpoint for pose-only
+ckpt_path=out/stage2_pretraining/best_checkpoint.pth
 
 deepspeed --include localhost:0,1,2,3 --master_port 29511 fine_tuning.py \
   --batch-size 8 \
@@ -196,7 +199,9 @@ deepspeed --include localhost:0,1,2,3 --master_port 29511 fine_tuning.py \
   --dataset WLASL \
   --task ISLR \
   --max_length 64 \
-  --rgb_support  # remove for pose-only
+  --rgb_support
+  
+# For pose-only mode, remove the --rgb_support flag
 ```
 
 #### Evaluation
@@ -529,7 +534,9 @@ deepspeed --include localhost:0,1,2,3 --master_port 29511 pre_training.py \
    --lr 3e-4 \
    --quick_break 2048 \
    --output_dir $output_dir \
-   --dataset CSL_News  # 或 CSL_Daily, WLASL, How2Sign, OpenASL
+   --dataset CSL_News
+   
+# 其他数据集选项：CSL_Daily, WLASL, How2Sign, OpenASL
 ```
 
 **Stage 2：RGB-姿态预训练**
@@ -557,7 +564,8 @@ deepspeed --include localhost:0,1,2,3 --master_port 29511 pre_training.py \
 *手语翻译 (SLT)：*
 ```bash
 output_dir=out/stage3_finetuning
-ckpt_path=out/stage2_pretraining/best_checkpoint.pth  # 或使用 stage1 进行仅姿态训练
+# RGB-姿态模式使用 stage2 检查点，仅姿态模式使用 stage1 检查点
+ckpt_path=out/stage2_pretraining/best_checkpoint.pth
 
 deepspeed --include localhost:0,1,2,3 --master_port 29511 fine_tuning.py \
   --batch-size 8 \
@@ -591,7 +599,9 @@ deepspeed --include localhost:0,1,2,3 --master_port 29511 fine_tuning.py \
   --dataset WLASL \
   --task ISLR \
   --max_length 64 \
-  --rgb_support  # 移除此项以使用仅姿态模式
+  --rgb_support
+  
+# 要使用仅姿态模式，请移除 --rgb_support 标志
 ```
 
 #### 评估
