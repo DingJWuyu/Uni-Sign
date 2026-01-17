@@ -60,6 +60,9 @@ unzip BLEURT-20.zip
 ## 📖 Preparation
 Please follow the instructions provided in [DATASET.md](./docs/DATASET.md) for data preparation.
 
+## 📘 Usage Guide
+**NEW!** For comprehensive usage instructions including system requirements, data preparation checklist, different inference modes, and memory optimization tips, please refer to [USAGE.md](./docs/USAGE.md). This guide is available in both English and Chinese (本指南提供中英文版本).
+
 ## 🔨 Training & Evaluation
 All scripts must be executed within the Uni-Sign directory. 
 
