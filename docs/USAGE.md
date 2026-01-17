@@ -85,14 +85,22 @@ Before running the model, ensure you have prepared all necessary components:
 ##### For How2Sign (American Sign Language Translation):
 - [ ] Download from [How2Sign website](https://how2sign.github.io/)
 - [ ] Download pose data from [HuggingFace](https://huggingface.co/ZechengLi19/Uni-Sign)
-- [ ] Merge split files: `cat how2sign_pose_format.zip.* > how2sign_pose_format.zip && unzip how2sign_pose_format.zip`
+- [ ] Merge split files:
+  ```bash
+  cat how2sign_pose_format.zip.* > how2sign_pose_format.zip
+  unzip how2sign_pose_format.zip
+  ```
 - [ ] Label files: `./data/How2Sign/labels.{train,test}` (included in repo)
 - [ ] Extract to: `./dataset/How2Sign/`
 
 ##### For OpenASL (American Sign Language Translation):
 - [ ] Download from [OpenASL GitHub](https://github.com/chevalierNoir/OpenASL)
 - [ ] Download pose data from [HuggingFace](https://huggingface.co/ZechengLi19/Uni-Sign)
-- [ ] Merge split files: `cat openasl_pose_format.zip.* > openasl_pose_format.zip && unzip openasl_pose_format.zip`
+- [ ] Merge split files:
+  ```bash
+  cat openasl_pose_format.zip.* > openasl_pose_format.zip
+  unzip openasl_pose_format.zip
+  ```
 - [ ] Label files: `./data/OpenASL/labels.{train,dev,test}` (included in repo)
 - [ ] Extract to: `./dataset/OpenASL/`
 
@@ -472,14 +480,22 @@ If you encounter issues not covered in this guide, please:
 ##### How2Sign（美国手语翻译）：
 - [ ] 从 [How2Sign 网站](https://how2sign.github.io/) 下载
 - [ ] 从 [HuggingFace](https://huggingface.co/ZechengLi19/Uni-Sign) 下载姿态数据
-- [ ] 合并分割文件：`cat how2sign_pose_format.zip.* > how2sign_pose_format.zip && unzip how2sign_pose_format.zip`
+- [ ] 合并分割文件：
+  ```bash
+  cat how2sign_pose_format.zip.* > how2sign_pose_format.zip
+  unzip how2sign_pose_format.zip
+  ```
 - [ ] 标签文件：`./data/How2Sign/labels.{train,test}`（仓库中已包含）
 - [ ] 解压到：`./dataset/How2Sign/`
 
 ##### OpenASL（美国手语翻译）：
 - [ ] 从 [OpenASL GitHub](https://github.com/chevalierNoir/OpenASL) 下载
 - [ ] 从 [HuggingFace](https://huggingface.co/ZechengLi19/Uni-Sign) 下载姿态数据
-- [ ] 合并分割文件：`cat openasl_pose_format.zip.* > openasl_pose_format.zip && unzip openasl_pose_format.zip`
+- [ ] 合并分割文件：
+  ```bash
+  cat openasl_pose_format.zip.* > openasl_pose_format.zip
+  unzip openasl_pose_format.zip
+  ```
 - [ ] 标签文件：`./data/OpenASL/labels.{train,dev,test}`（仓库中已包含）
 - [ ] 解压到：`./dataset/OpenASL/`
 
